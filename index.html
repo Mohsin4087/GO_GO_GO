@@ -12,12 +12,22 @@
     <header class="main-header">
         <nav>
             <a href="index.html" class="logo">GO GO GO</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links">
                 <li><a href="pages/features.html">Features</a></li>
                 <li><a href="pages/testimonials.html">Testimonials</a></li>
                 <li><a href="pages/login.html" class="cta-button">Sign In</a></li>
             </ul>
         </nav>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="pages/features.html">Features</a></li>
+                <li><a href="pages/testimonials.html">Testimonials</a></li>
+                <li><a href="pages/login.html" class="cta-button">Sign In</a></li>
+            </ul>
+        </div>
     </header>
 
     <main>
@@ -25,7 +35,7 @@
             <div class="hero-content">
                 <h1>All Your Travel Plans. One Wallet.</h1>
                 <p>Store your boarding passes, tickets, hotel bookings and more with GO GO GO.</p>
-                <button class="primary-button">Get Started</button>
+                <a href="pages/login.html" class="primary-button">Get Started</a>
             </div>
         </section>
 
@@ -94,5 +104,38 @@
             <p class="copyright">&copy; 2024 GO GO GO. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
+                // Toggle between hamburger and close icon
+                const icon = mobileMenuBtn.querySelector('i');
+                if (mobileMenu.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!mobileMenu.contains(event.target) && 
+                    !mobileMenuBtn.contains(event.target) && 
+                    mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
