@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GO GO GO Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">GO GO GO</div>
+    <div class="nav-links">
+      <a href="#">My Wallet</a>
+      <a href="#">Upload</a>
+      <a href="#">Logout</a>
+    </div>
+  </nav>
+  <main class="dashboard-main">
+    <h1>Welcome to Your Travel Wallet</h1>
+    <p>Upload your boarding pass or other travel documents below.</p>
+    <div class="upload-section">
+      <input type="file" id="file-input" accept=".pdf,.jpg,.jpeg,.png" />
+      <button id="upload-btn">Upload Document</button>
+    </div>
+    <div id="documents-list">
+      <!-- Uploaded documents will appear here -->
+    </div>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

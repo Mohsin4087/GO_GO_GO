@@ -2,6 +2,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const loginForm = document.getElementById('login-form');
   const loginMessage = document.getElementById('login-message');
   
+  // Check if user is already logged in
+  if (localStorage.getItem('isLoggedIn') === 'true') {
+      window.location.href = 'dashboard.html';
+      return;
+  }
+  
   loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
       
@@ -14,14 +20,15 @@ document.addEventListener('DOMContentLoaded', function() {
           return;
       }
       
-      // Here you would typically make an API call to your backend
-      // For demonstration, we'll simulate a successful login
-      
       // Simulate API call
       setTimeout(() => {
           // Check credentials (in a real app, this would be done server-side)
           if (email === 'demo@example.com' && password === 'password') {
               showMessage('Login successful! Redirecting...', 'success');
+              
+              // Store login state
+              localStorage.setItem('isLoggedIn', 'true');
+              localStorage.setItem('userEmail', email);
               
               // Redirect to dashboard after 1 second
               setTimeout(() => {

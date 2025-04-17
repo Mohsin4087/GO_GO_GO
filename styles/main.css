@@ -629,4 +629,22 @@ footer {
     }
 }
 
+/* Logged-in state styles */
+.logged-in .nav-links .sign-in-link {
+    display: none;
+}
+
+.logged-in .nav-links .dashboard-link {
+    display: block;
+}
+
+.logged-in .nav-links .sign-out-link {
+    display: block;
+}
+
+.nav-links .dashboard-link,
+.nav-links .sign-out-link {
+    display: none;
+}
+
 /* ... rest of existing code ... */ 
